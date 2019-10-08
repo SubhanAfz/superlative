@@ -26,7 +26,7 @@ bot.on("message", message =>{
     
     if (args[0] == "ping"){
         var ping =  message.createdTimestamp - new Date().getTime()+ " ms";
-        message.channel.send(ping);
+        message.reply(ping);
         
     }
     if (args[0] == "kick"){
@@ -63,7 +63,10 @@ bot.on("message", message =>{
           }
         }
     if (args[0] == "createchannel"){
-      
+        if (args[2] != "text" || "voice"){
+          message.reply(`You didn't specify the type of channel!`)
+          
+          }
 
         message.guild.createChannel(args[1], { type: args[2]}).then(channel =>{
           if (args[2] != "text" || "voice"){
@@ -83,7 +86,7 @@ bot.on("message", message =>{
       .addField("Server Owner:",`${message.guild.owner}`,true)
       .addField("Member Count:", `${message.guild.memberCount}`)
       .setFooter("Superlative | All Purpose Discord bot");
-      message.channel.send({embed:msgembed});
+      message.reply({embed:msgembed});
 
     }
     if (args[0] == "ban"){
