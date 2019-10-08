@@ -118,6 +118,35 @@ bot.on("message", message =>{
           }
       
     }
+    if (args[0] == "join")
+    {
+      if (message.member.voiceChannel)
+        {
+            if(message.guild.voiceConnection)
+            {
+                message.guild.voiceConnection.disconnect();
+            }
+            else
+            {
+                message.member.voiceChannel.join()
+                .then(connection=>{
+                    message.reply("success");
+                })
+
+            }
+        }
+        else
+            {
+                message.reply("Your not in a VC");
+    }
+    if (args[0] == "leave")
+    {
+      if (message.guild.voiceConnection)
+        {
+            message.guild.voiceConnection.disconnect();
+            message.reply("I have left the VC!");
+        }
+    }
     
       
     
