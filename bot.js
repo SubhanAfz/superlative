@@ -65,7 +65,7 @@ bot.on("message", message =>{
     if (args[0] == "createchannel"){
         if (args[2] != "text" || "voice"){
           message.reply(`You didn't specify the type of channel!`)
-          
+          return;
           }
 
         message.guild.createChannel(args[1], { type: args[2]}).then(channel =>{
