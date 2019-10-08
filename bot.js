@@ -1,0 +1,97 @@
+// Modules and Dependencies
+const discord = require("discord.js");
+const colours = require("./colours.json")
+// Global Constants
+const bot = new discord.Client();
+const token = process.env.token;
+const prefix = ".";
+
+
+
+//log on
+bot.on("ready", () => {
+    console.log("logged on");
+    bot.user.setActivity("Bot is online!",{type: "STREAMING"});
+});
+
+
+
+bot.on("message", message =>{
+    if(!message.guild) return;
+    if (message.author.equals(bot.user))  return;
+    if (!message.content.startsWith(prefix)) return;
+    var args = message.content.substring(prefix.length).split(" ");
+    
+    
+    
+    if (args[0] == "ping"){
+        var ping =  message.createdTimestamp - new Date().getTime()+ " ms";
+        message.channel.send(ping);
+        
+    }
+    if (args[0] == "kick"){
+        var user = message.mentions.users.first();
+        
+        if (user) {
+            // Now we get the member from the user
+            const member = message.guild.member(user);
+            // If the member is in the guild
+            if (member) {
+              /**
+               * Kick the member
+               * Make sure you run this on a member, not a user!
+               * There are big differences between a user and a member
+               */
+              member.kick(args[2]).then(() => {
+                // We let the message author know we were able to kick the person
+                message.reply(`Successfully kicked ${user.tag}`);
+              }).catch(err => {
+                // An error happened
+                // This is generally due to the bot not being able to kick the member,
+                // either due to missing permissions or role hierarchy
+                message.reply('I was unable to kick the member');
+                // Log the error
+                console.error(err);
+              });
+            } else {
+              // The mentioned user isn't in this guild
+              message.reply('That user isn\'t in this guild!');
+            }
+          // Otherwise, if no user was mentioned
+          } else {
+            message.reply('You didn\'t mention the user to kick!');
+          }
+        }
+    if (args[0] == "createchannel"){
+      channeltype = ""
+
+        message.guild.createChannel(args[1], { type: channeltype}).then(channel =>{
+          message.reply(`Created channel called ${args[1]} which is a ${args[2]} channel`);
+        });
+      
+    }
+    if (args[0] == "serverinfo"){
+      let msgembed = new discord.RichEmbed()
+      .setColor(colours.light_blue)
+      .setTitle(`${message.guild.name} Server Info`)
+      .addField("Server Name:", `${message.guild.name}`,true)
+      .addField("Server Owner:",`${message.guild.owner}`,true)
+      .addField("Member Count:", `${message.guild.memberCount}`)
+      .setFooter("Superlative | All Purpose Discord bot");
+      message.channel.send({embed:msgembed});
+
+    }
+    if (args[0] == "info"){
+
+    }
+    
+      
+    
+
+    
+});    
+
+
+
+
+bot.login(token)
