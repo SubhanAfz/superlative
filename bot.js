@@ -138,6 +138,7 @@ bot.on("message", message =>{
         else
             {
                 message.reply("Your not in a VC");
+            }
     }
     if (args[0] == "leave")
     {
