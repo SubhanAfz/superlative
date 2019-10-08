@@ -63,9 +63,9 @@ bot.on("message", message =>{
           }
         }
     if (args[0] == "createchannel"){
-      channeltype = ""
+      
 
-        message.guild.createChannel(args[1], { type: channeltype}).then(channel =>{
+        message.guild.createChannel(args[1], { type: args[2]}).then(channel =>{
           message.reply(`Created channel called ${args[1]} which is a ${args[2]} channel`);
         });
       
