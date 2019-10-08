@@ -66,7 +66,12 @@ bot.on("message", message =>{
       
 
         message.guild.createChannel(args[1], { type: args[2]}).then(channel =>{
+          if (args[2] != "text" || "voice"){
+            message.reply(`Created Channel called ${args[1]} which is a text channel`)
+          }
+          else{
           message.reply(`Created channel called ${args[1]} which is a ${args[2]} channel`);
+          }
         });
       
     }
