@@ -150,16 +150,12 @@ bot.on("message", message =>{
     }
     if (args[0] == "flip")
     {
-      randomnumber = math.random();
-      randomrounded = math.round(randomnumber);
-      if (randomrounded = 1)
-      {
-        message.reply("It is heads!");
-      }
-      else
-      {
-        message.reply("It is tails!");
-      }
+        var chance = Math.floor(Math.random()*2)
+        if (chance === 1){
+        message.reply("Coin landed on heads!")
+        }
+        if (chance === 0){
+         message.reply("Coin landed on tails!")
     }
       
     
