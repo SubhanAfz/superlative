@@ -1,7 +1,7 @@
 module.exports = class ping{
     constructor(){
-        this.name = "ping"
-        this.alias = ["p"]
+        this.name = "ping",
+        this.alias = ["p"],
         this.usage = ".ping"
     }
     run(bot, message, args)
