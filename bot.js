@@ -26,6 +26,7 @@ bot.on("message", message =>{
     if (message.author.equals(bot.user))  return;
     if (!message.content.startsWith(prefix)) return;
     var args = message.content.substring(prefix.length).split(" ");
+    let command = args[0]
     let cmd = CH.getCommand(command);
     if(!cmd) return;
     try{
