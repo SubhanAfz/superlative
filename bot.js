@@ -22,19 +22,18 @@ bot.on("ready", () => {
 
 
 bot.on("message", message =>{
-    if(!message.guild) return;
-    if (message.author.equals(bot.user))  return;
-    if (!message.content.startsWith(prefix)) return;
-    var args = message.content.substring(prefix.length).split(" ");
-    let command = args[0]
-    let cmd = CH.getCommand(command);
-    if(!cmd) return;
-    try{
-      cmd.run(bot,message,args)
-    }catch(e){
-      console.log(e)
-    }
+  if(message.channel.type === 'dm') return;
+  if(message.author.type === 'bot') return;
+  let args = message.content.split(" ");
+  let command = args[0];
+  let cmd = CH.getCommand(command);
+  if(!cmd) return;
 
+  try{
+      cmd.run(bot,message,args)
+  }catch(e){
+      console.log(e)
+  }
 
     
     
