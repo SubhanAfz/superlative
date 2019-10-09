@@ -150,15 +150,15 @@ bot.on("message", message =>{
     }
     if (args[0] == "flip")
     {
-      randomnumber = math.random()
-      randomrounded = math.round(randomnumber)
+      randomnumber = math.random();
+      randomrounded = math.round(randomnumber);
       if (randomrounded = 1)
       {
-        message.reply("It is heads!")
+        message.reply("It is heads!");
       }
       else
       {
-        message.reply("It is tails!")
+        message.reply("It is tails!");
       }
     }
       
