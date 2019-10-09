@@ -39,11 +39,7 @@ bot.on("message", message =>{
     
     
     
-    if (args[0] == "ping"){
-        var ping =  message.createdTimestamp - new Date().getTime()+ " ms";
-        message.reply(ping);
-        
-    }
+    
     if (args[0] == "kick"){
         var user = message.mentions.users.first();
         
