@@ -1,6 +1,11 @@
 // Modules and Dependencies
 const discord = require("discord.js");
-const colours = require("./colours.json")
+const colours = require("./colours.json");
+const { CommandHandler } = require("djs-commands")
+const CH = new CommandHandler({
+  folder: __dirname + '/commands/',
+  prefix: ['.']
+});
 // Global Constants
 const bot = new discord.Client();
 const token = process.env.token;
@@ -21,6 +26,15 @@ bot.on("message", message =>{
     if (message.author.equals(bot.user))  return;
     if (!message.content.startsWith(prefix)) return;
     var args = message.content.substring(prefix.length).split(" ");
+    let cmd = CH.getCommand(command);
+    if(!cmd) return;
+    try{
+      cmd.run(bot,message,args)
+    }catch(e){
+      console.log(e)
+    }
+
+
     
     
     
