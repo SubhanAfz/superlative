@@ -7,7 +7,7 @@ const CH = new CommandHandler({
   prefix: ['.']
 });
 const CH_botRole = new CommandHandler({
-  foler: __dirname + '/commands/extreme',
+  foler: __dirname + '/commands/extreme/',
   prefix: ['.']
 })
 // Global Constants
@@ -51,7 +51,7 @@ bot.on("message", message =>{
   let cmd = CH.getCommand(command);
   let cmd_botrole = CH_botRole.getCommand(command);
   
-  if (cmd_botrole && botroleuser ){
+  if (cmd_botrole && botroleuser){
     try{
       cmd_botrole.run(bot,message,args)
     }catch(error){
