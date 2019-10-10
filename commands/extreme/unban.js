@@ -13,8 +13,7 @@ module.exports = class unban{
             const member = message.guild.member(user);
             
             if (member) {
-              let botRole = member.roles.find("name","CanUseBot")
-              if(!botRole) message.reply("Insufficent Role, You need CanUseBot Role!")
+              
               
               
               member.unban(member).then(() => {
