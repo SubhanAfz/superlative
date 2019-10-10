@@ -43,7 +43,7 @@ bot.on("message", message =>{
   let user = message.author
   if (!user) return;
   let member = message.guild.member(user)
-  let botRole = member.roles.find("name","CanUseBot")
+  let botroleuser = member.roles.find("name","CanUseBot")
   
 
   let args = message.content.split(" ");
@@ -51,7 +51,7 @@ bot.on("message", message =>{
   let cmd = CH.getCommand(command);
   let cmd_botrole = CH_botRole.getCommand(command);
   
-  if (cmd_botrole && member ){
+  if (cmd_botrole && botroleuser ){
     try{
       cmd_botrole.run(bot,message,args)
     }catch(error){
