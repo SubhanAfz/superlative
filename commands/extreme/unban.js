@@ -1,8 +1,8 @@
-module.exports = class ban{
+module.exports = class unban{
     constructor(){
-        this.name = "ban",
-        this.alias = ["b"],
-        this.usage = ".ban @person"
+        this.name = "unban",
+        this.alias = ["ub"],
+        this.usage = ".unban @person"
     }
     async run(bot, message, args)
     {
@@ -13,14 +13,16 @@ module.exports = class ban{
             const member = message.guild.member(user);
             
             if (member) {
+              let botRole = member.roles.find("name","CanUseBot")
+              if(!botRole) message.reply("Insufficent Role, You need CanUseBot Role!")
               
               
-              member.ban(member).then(() => {
+              member.unban(member).then(() => {
                 
-                message.reply(`Successfully banned ${user.tag}`);
+                message.reply(`Successfully unbanned ${user.tag}`);
               }).catch(err => {
                 
-                message.reply('I was unable to ban the member');
+                message.reply('I was unable to unban the member');
                 
                 console.error(err);
               });
