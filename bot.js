@@ -28,7 +28,7 @@ bot.on("message", message =>{
   if (!user) return;
   let member = message.guild.member(user)
   if (!member) return;
-  print(member.roles)
+  console.log(member.roles)
   let args = message.content.split(" ");
   let command = args[0];
   let cmd = CH.getCommand(command);
