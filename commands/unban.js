@@ -1,8 +1,8 @@
-module.exports = class ban{
+module.exports = class unban{
     constructor(){
-        this.name = "ban",
-        this.alias = ["b"],
-        this.usage = ".ban @person"
+        this.name = "unban",
+        this.alias = ["ub"],
+        this.usage = ".unban @person"
     }
     async run(bot, message, args)
     {
@@ -15,12 +15,12 @@ module.exports = class ban{
             if (member) {
               
               
-              member.ban(member).then(() => {
+              member.unban(member).then(() => {
                 
-                message.reply(`Successfully banned ${user.tag}`);
+                message.reply(`Successfully unbanned ${user.tag}`);
               }).catch(err => {
                 
-                message.reply('I was unable to ban the member');
+                message.reply('I was unable to unban the member');
                 
                 console.error(err);
               });

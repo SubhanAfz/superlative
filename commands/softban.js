@@ -1,8 +1,8 @@
 module.exports = class ban{
     constructor(){
-        this.name = "ban",
-        this.alias = ["b"],
-        this.usage = ".ban @person"
+        this.name = "softban",
+        this.alias = ["sb"],
+        this.usage = ".softban @person timeinsecs "
     }
     async run(bot, message, args)
     {
@@ -17,10 +17,13 @@ module.exports = class ban{
               
               member.ban(member).then(() => {
                 
-                message.reply(`Successfully banned ${user.tag}`);
+                message.reply(`Successfully softbanned ${user.tag}`);
+                setTimeout(function() {
+                    member.unban(member)
+                  }, parseInt(args[2]));
               }).catch(err => {
                 
-                message.reply('I was unable to ban the member');
+                message.reply('I was unable to softban the member');
                 
                 console.error(err);
               });
