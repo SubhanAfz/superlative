@@ -6,9 +6,9 @@ module.exports = class ban{
     }
     async run(bot, message, args)
     {
-      let memberrole = message.author
-      let botroleuser =memberrole.roles.find("name", "CanUseBot")
-      if (!botroleuser) message.reply("You need to be have the CanUse Role")
+      let memberrole = message.member
+      let botroleuser =message.member.roles.find(value =>value.role === "CanUseBot")
+      if (!botroleuser) message.reply("You need to be have the CanUseBot Role")
         var user = message.mentions.users.first();
         
         if (user) {
