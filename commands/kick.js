@@ -4,8 +4,11 @@ module.exports = class kick{
         this.alias = ["k"]
         this.usage = ".kick @user"
     }
-    run(bot, message, args)
+    async run(bot, message, args)
     {
+      let memberrole = message.guild.member(user)
+      let botroleuser = memberrole.roles.find("name","CanUseBot")
+      if (!botroleuser) message.reply("You need to be have the CanUse Role")
         var user = message.mentions.users.first();
         
         if (user) {

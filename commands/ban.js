@@ -1,11 +1,14 @@
 module.exports = class ban{
     constructor(){
-        this.name = "softban",
-        this.alias = ["sb"],
-        this.usage = ".softban @person timeinsecs "
+        this.name = "ban",
+        this.alias = ["b"],
+        this.usage = ".ban @person"
     }
     async run(bot, message, args)
     {
+      let memberrole = message.guild.member(user)
+      let botroleuser = memberrole.roles.find("name","CanUseBot")
+      if (!botroleuser) message.reply("You need to be have the CanUse Role")
         var user = message.mentions.users.first();
         
         if (user) {
@@ -15,15 +18,13 @@ module.exports = class ban{
             if (member) {
               
               
+              
               member.ban(member).then(() => {
                 
-                message.reply(`Successfully softbanned ${user.tag}`);
-                setTimeout(function() {
-                    member.unban(member)
-                  }, parseInt(args[2]));
+                message.reply(`Successfully banned ${user.tag}`);
               }).catch(err => {
                 
-                message.reply('I was unable to softban the member');
+                message.reply('I was unable to ban the member');
                 
                 console.error(err);
               });

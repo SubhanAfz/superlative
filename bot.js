@@ -6,10 +6,7 @@ const CH = new CommandHandler({
   folder: __dirname + '/commands/',
   prefix: ['.']
 });
-const CH_botRole = new CommandHandler({
-  foler: __dirname + '/commands/extreme/',
-  prefix: ['.']
-})
+
 // Global Constants
 const bot = new discord.Client();
 const token = process.env.token;
@@ -42,22 +39,18 @@ bot.on("message", message =>{
   }
   let user = message.author
   if (!user) return;
-  let member = message.guild.member(user)
-  let botroleuser = member.roles.find("name","CanUseBot")
+  //For extremer commands
+  //let memberrole = message.guild.member(user)
+  //let botroleuser = memberrole.roles.find("name","CanUseBot")
+  //if (!botroleuser) message.reply("You need to be have the CanUse Role")
   
 
   let args = message.content.split(" ");
   let command = args[0];
   let cmd = CH.getCommand(command);
-  let cmd_botrole = CH_botRole.getCommand(command);
   
-  if (cmd_botrole && botroleuser){
-    try{
-      cmd_botrole.run(bot,message,args)
-    }catch(error){
-      console.log(error)
-    }
-  }
+  
+  
   if(!cmd) return;
 
   try{

@@ -6,7 +6,9 @@ module.exports = class cchanneltext{
     }
     async run(bot, message, args)
     {
-                    
+      let memberrole = message.guild.member(user)
+      let botroleuser = memberrole.roles.find("name","CanUseBot")
+      if (!botroleuser) message.reply("You need to be have the CanUse Role")
   
           message.guild.createChannel(args[1], { type: "text"}).then(channel =>{
             
