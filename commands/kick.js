@@ -6,9 +6,11 @@ module.exports = class kick{
     }
     async run(bot, message, args)
     {
-      let memberrole = message.guild.member(user)
-      let botroleuser = memberrole.roles.find("name","CanUseBot")
-      if (!botroleuser) message.reply("You need to be have the CanUse Role")
+      let botroleuser =message.member.roles.find(value =>value.role === "CanUseBot")
+      if (!botroleuser){
+        message.reply("You need to be have the CanUseBot Role")
+        return;
+      } 
         var user = message.mentions.users.first();
         
         if (user) {

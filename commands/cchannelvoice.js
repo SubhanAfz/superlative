@@ -6,9 +6,11 @@ module.exports = class cchannelvoice{
     }
     async run(bot, message, args)
     {
-        let memberrole = message.guild.member(user)
-        let botroleuser = memberrole.roles.find("name","CanUseBot")
-        if (!botroleuser) message.reply("You need to be have the CanUse Role")
+        let botroleuser =message.member.roles.find(value =>value.role === "CanUseBot")
+        if (!botroleuser){
+            message.reply("You need to be have the CanUseBot Role")
+            return;
+        } 
           message.guild.createChannel(args[1], { type: "voice"}).then(channel =>{
             
               message.reply(`Created Channel called ${args[1]} which is a voice channel`)
