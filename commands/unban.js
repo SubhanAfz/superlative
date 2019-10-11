@@ -2,7 +2,7 @@ module.exports = class unban{
     constructor(){
         this.name = "unban",
         this.alias = ["ub"],
-        this.usage = ".unban @person"
+        this.usage = ".unban userid"
     }
     async run(bot, message, args)
     {
@@ -11,17 +11,13 @@ module.exports = class unban{
             message.reply("You dont have the role!");
             return;
         }
-        var user = message.mentions.users.first();
+        var userid = args[1]
         
         if (user) {
-            
-            const member = message.guild.member(user);
-            
-            if (member) {
+              var reason = args[2]
               
               
-              
-              member.unban(member).then(() => {
+              member.unban(userid, reason).then(() => {
                 
                 message.reply(`Successfully unbanned ${user.tag}`);
               }).catch(err => {
