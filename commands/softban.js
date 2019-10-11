@@ -26,7 +26,7 @@ module.exports = class ban{
                 setTimeout(function() {
                    let memberid = member.id
                   member.unban(memberid)
-                  }, parseInt(args[2]));
+                  }, args[2]);
               }).catch(err => {
                 
                 message.reply('I was unable to softban the member');
