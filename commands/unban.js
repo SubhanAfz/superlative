@@ -19,7 +19,7 @@ module.exports = class unban{
               
               message.guild.unban(userid, reason).then(() => {
                 
-                message.reply(`Successfully unbanned ${userid.tag}`);
+                message.reply(`Successfully unbanned ${userid.name}`);
               }).catch(err => {
                 
                 message.reply('I was unable to unban the member');

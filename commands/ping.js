@@ -6,7 +6,7 @@ module.exports = class ping{
     }
     async run(bot, message, args)
     {
-        var ping =  message.createdTimestamp - new Date().getTime()+ " ms";
+        var ping =  new Date().getTime() - message.createdTimestamp+ " ms";
         message.reply(ping);
     }
 }

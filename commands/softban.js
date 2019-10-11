@@ -18,13 +18,14 @@ module.exports = class ban{
             const member = message.guild.member(user);
             
             if (member) {
-              
+                
               
               member.ban(member).then(() => {
                 
                 message.reply(`Successfully softbanned ${user.tag}`);
                 setTimeout(function() {
-                    member.unban(member)
+                   let memberid = member.id
+                  member.unban(memberid)
                   }, parseInt(args[2]));
               }).catch(err => {
                 
