@@ -28,11 +28,9 @@ module.exports = class unban{
               });
             } else {
               
-              message.reply('That user isn\'t in this guild!');
+              message.reply('This person is already unbanned or invalid UserId!');
             }
 
-          } else {
-            message.reply('You didn\'t mention the user to kick!');
-          }
+          
     }
 }
