@@ -6,7 +6,9 @@ module.exports = class cchannelvoice{
     }
     async run(bot, message, args)
     {
-        let botroleuser =message.member.roles.find(value =>value.role === "CanUseBot")
+        let botroleuser =message.member.roles.find(function(value){
+           return value.role.name === "CanUseBot" 
+        });
         if (!botroleuser){
             message.reply("You need to be have the CanUseBot Role")
             return;
