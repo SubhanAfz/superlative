@@ -2,11 +2,10 @@
 [![Discord](https://discordapp.com/api/guilds/584404484772331521/widget.png)](https://discord.gg/Rnj6pDa)
 > Superlative is an all-rounder discord bot which adds cool new commands to your landscape of your discord server!
 
-<<<<<<< HEAD
-Prefix is .
-=======
+
+
 ###### Prefix is .
->>>>>>> 4c22a6c4457d394a5fab7f344aa64f03b27a53a6
+
 
 # Commands
 ## Moderation and Misc (Person running commands in here will need CanUseBot role)
