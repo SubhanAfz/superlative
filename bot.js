@@ -39,11 +39,11 @@ bot.on("message", message =>{
   }
   let user = message.author
   if (!user) return;
-  //For extremer commands
-  //let memberrole = message.guild.member(user)
-  //let botroleuser = memberrole.roles.find("name","CanUseBot")
-  //if (!botroleuser) message.reply("You need to be have the CanUse Role")
-  
+  //let findroleuser =message.member.roles.find(value => value.name == "CanUseBot")
+  //      if (!findroleuser){
+  //          message.reply("You dont have the role!");
+  //          return;
+  //      }
 
   let args = message.content.split(" ");
   let command = args[0];
