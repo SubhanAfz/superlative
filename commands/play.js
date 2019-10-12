@@ -24,9 +24,11 @@ module.exports = class cchanneltext{
         }
         if(!message.member.voiceChannel){
             message.reply("You are not in a voice channel!")
+            return;
         }
-        if(!args[1].startsWith("www.youtube.com"|| "yotu.be")){
+        if(!args[1].startsWith("https://www.youtube.com"|| "https://youtu.be")){
             message.reply("You can only provide youtube links!")
+            return;
         }
         if(!servers[message.guild.id])servers[message.guild.id] ={
             queue: []
