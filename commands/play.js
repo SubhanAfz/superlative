@@ -10,9 +10,9 @@ async function play(connection,message){
 }
 module.exports = class cchanneltext{
     constructor(){
-        this.name = "cchanneltext",
-        this.alias = ["cchanneltext"],
-        this.usage = ".cchanneltext name"
+        this.name = ".play",
+        this.alias = ["play"],
+        this.usage = ".play link"
     }
     async run(bot, message, args)
     {
