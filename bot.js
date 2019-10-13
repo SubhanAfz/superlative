@@ -10,7 +10,7 @@ const CH = new CommandHandler({
 // Global Constants
 const bot = new discord.Client();
 const token =  process.env.token;
-const prefix = ".";
+
 
 
 
@@ -26,14 +26,14 @@ bot.on("message", message =>{
   if(message.channel.type === 'dm') return;
   if(message.author.type === 'bot') return;
   
-  let botRole = message.guild.roles.find("name","CanUseBot")
+  let botRole = message.guild.roles.find(value => value.name == "CanUseBot")
   
   
   if(!botRole){
     member.guild.createRole({
       name: "CanUseBot",
       color: "#949494"
-    }).then(function(role){
+    }).then(function(){
       message.reply("There wasn't a CanUseBot role, created one!");
     });
   }
