@@ -1,21 +1,8 @@
 const ytdl = require('ytdl-core');
-function play(connection,message){
-    var server = servers[message.guild.id]
-    server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
-    server.queue.shift();
-    server.dispatcher.on("end", function(){
-        if (server.queue[0]){
-            play(connection,message);
-            
-        }
-        else{
-            connection.disconnect();
-        }
-    });
-    
-}
+
 var servers ={}; 
-module.exports = class cchanneltext{
+
+module.exports = class play{
     constructor(){
         this.name = ".play",
         this.alias = ["play"],
@@ -23,28 +10,63 @@ module.exports = class cchanneltext{
     }
     async run(bot, message, args)
     {
-       
-        
+        function play(connection,message){
+            var server = servers[message.guild.id]
+            server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+            server.queue.shift();
+            server.dispatcher.on("end", function(){
+                if (server.queue[0]){
+                    play(connection,message);
+                    
+                }
+                else{
+                    connection.disconnect();
+                }
+            });
+            
+        };
         if(!args[1]){
             message.reply("You didn't give a link!")
             return;
         }
-        if(!message.member.voiceChannel){
-            message.reply("You are not in a voice channel!")
-            return;
-        }
+        
         if(!ytdl.validateURL(args[1])){
             message.reply("You can only provide youtube links!")
             return;
         }
-        if(!servers[message.guild.id])
+        if (message.member.voiceChannel)
         {
-            servers[message.guild.id]={queue:[]}
-        }
-        var server = servers[message.guild.id]
-        server.queue.push(queue);
+            if(message.guild.voiceConnection)
+            {
+                message.guild.voiceConnection.disconnect();
+            }
+            else
+            {
+                if(!servers[message.guild.id]){
+                    servers[message.guild.id]={queue:[]}
+                }
+                var server = servers[message.guild.id]
+                message.member.voiceChannel.join()
+                .then(connection=>{
+                    message.reply("success");
+                    server.queue.push(args[1]);
 
-        play(connection, message)
+                    play(connection, message)
+                })
+
+            }
+        }
+        else
+            {
+                message.reply("Your not in a Voice Channel!");
+            }
+    }
+       
+        
+        
+
+        
+        
+        
 
     }
-}

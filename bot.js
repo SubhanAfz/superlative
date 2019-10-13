@@ -9,7 +9,7 @@ const CH = new CommandHandler({
 
 // Global Constants
 const bot = new discord.Client();
-const token = process.env.token;
+const token =  "NjI3NjAyMDQ1MzIyMzk1Njkw.XY_B_w.hAOlrcoqpMqOFAJR67-LLKAqfc4"//process.env.token;
 const prefix = ".";
 
 
