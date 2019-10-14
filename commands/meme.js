@@ -14,7 +14,7 @@ module.exports = class meme{
         .get("https://apis.duncte123.me/meme")
         if(!body) return message.reply("It broke! Try again!")
         let embed = new discord.RichEmbed()
-        .setcolor(colours.light_blue)
+        .setColor(colours.light_blue)
         .setauthor("Superlative")
         .setImage(body.url)
     }

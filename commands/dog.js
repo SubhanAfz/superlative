@@ -16,7 +16,7 @@ module.exports = class dog{
         .get("https://dog.ceo/api/breeds/image/random")
         if(!body) return message.reply("It broke! Try again!")
         let embed = new discord.RichEmbed()
-        .setcolor(colours.light_green)
+        .setColor(colours.light_green)
         .setauthor("Superlative")
         .setImage(body.message)
     }

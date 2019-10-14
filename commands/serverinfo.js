@@ -5,7 +5,7 @@ module.exports = class serverinfo{
         this.alias = ["sinfo"],
         this.usage = ".serverinfo"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
         let msgembed = new discord.RichEmbed()
         .setColor(colours.light_blue)
