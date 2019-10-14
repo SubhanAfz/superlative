@@ -6,6 +6,11 @@ module.exports = class leave{
     }
     async run(bot, message, args)
     {
+        let findDJ =message.member.roles.find(value => value.name == "DJ")
+        if (!findDJ){
+            message.reply("You dont have DJ role!");
+          return;
+        }
         if (message.guild.voiceConnection)
         {
             message.guild.voiceConnection.disconnect();

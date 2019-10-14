@@ -25,6 +25,11 @@ module.exports = class play{
             });
             
         };
+        let findDJ =message.member.roles.find(value => value.name == "DJ")
+        if (!findDJ){
+            message.reply("You dont have DJ role!");
+          return;
+        }
         if(!args[1]){
             message.reply("You didn't give a link!")
             return;

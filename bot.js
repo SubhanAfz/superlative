@@ -27,6 +27,7 @@ bot.on("message", message =>{
   if(message.author.type === 'bot') return;
   
   let botRole = message.guild.roles.find(value => value.name == "CanUseBot")
+  let DJ = message.guild.roles.find(value => value.name == "DJ")
   
   
   if(!botRole){
@@ -35,6 +36,14 @@ bot.on("message", message =>{
       color: "#949494"
     }).then(function(){
       message.reply("There wasn't a CanUseBot role, created one!");
+    });
+  }
+  if(!DJ){
+    member.guild.createRole({
+      name: "DJ",
+      color: "#1569bd"
+    }).then(function(){
+      message.reply("There wasn't a DJ role, created one!")
     });
   }
   let user = message.author
