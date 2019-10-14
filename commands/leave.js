@@ -4,7 +4,7 @@ module.exports = class leave{
         this.alias = ["leave"],
         this.usage = ".leave"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
         let findDJ =message.member.roles.find(value => value.name == "DJ")
         if (!findDJ){

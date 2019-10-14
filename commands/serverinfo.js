@@ -1,3 +1,4 @@
+const discord = require("discord.js")
 module.exports = class serverinfo{
     constructor(){
         this.name = "serverinfo",

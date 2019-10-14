@@ -4,7 +4,7 @@ module.exports = class flip{
         this.alias = ["flip"],
         this.usage = ".flip"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
         var chance = Math.floor(Math.random()*2);
         if (chance === 1){

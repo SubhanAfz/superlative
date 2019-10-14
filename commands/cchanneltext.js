@@ -4,7 +4,7 @@ module.exports = class cchanneltext{
         this.alias = ["cchanneltext"],
         this.usage = ".cchanneltext name"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
         let findroleuser =message.member.roles.find(value => value.name == "CanUseBot")
         if (!findroleuser){

@@ -23,7 +23,7 @@ module.exports = class play{
                     connection.disconnect();
                 }
             });
-            
+                
         };
         let findDJ =message.member.roles.find(value => value.name == "DJ")
         if (!findDJ){

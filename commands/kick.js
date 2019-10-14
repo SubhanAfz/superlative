@@ -4,7 +4,7 @@ module.exports = class kick{
         this.alias = ["k"]
         this.usage = ".kick @user"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
       let findroleuser =message.member.roles.find(value => value.name == "CanUseBot")
         if (!findroleuser){

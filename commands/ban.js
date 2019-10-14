@@ -4,7 +4,7 @@ module.exports = class ban{
         this.alias = ["b"],
         this.usage = ".ban @person"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
       
       let findroleuser =message.member.roles.find(value => value.name == "CanUseBot")

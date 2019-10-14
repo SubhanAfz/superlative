@@ -63,7 +63,7 @@ bot.on("message", message =>{
   if(!cmd) return;
 
   try{
-      cmd.run(bot,message,args)
+      cmd.run(bot,message,args,colours)
   }catch(e){
       console.log(e)
   }
