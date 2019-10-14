@@ -15,7 +15,7 @@ module.exports = class cat{
         if(!body) return message.reply("It broke! Try again!")
         let embed = new discord.RichEmbed()
         .setColor(colours.light_blue)
-        .setauthor("Superlative")
+        .setAuthor("Superlative")
         .setImage(body.file)
     }
 }

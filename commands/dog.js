@@ -17,7 +17,7 @@ module.exports = class dog{
         if(!body) return message.reply("It broke! Try again!")
         let embed = new discord.RichEmbed()
         .setColor(colours.light_green)
-        .setauthor("Superlative")
+        .setAuthor("Superlative")
         .setImage(body.message)
     }
 }
