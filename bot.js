@@ -6,6 +6,8 @@ const CH = new CommandHandler({
   folder: __dirname + '/commands/',
   prefix: ['.']
 });
+const ytdl = require("ytdl-core")
+const superagent = require("superagent")
 
 // Global Constants
 const bot = new discord.Client();
