@@ -1,4 +1,4 @@
-const superagent = require("superagent")
+const fetch = require("node-fetch")
 const discord = require("discord.js")
 
 
@@ -8,16 +8,22 @@ module.exports = class dog{
         this.alias = ["dog"],
         this.usage = ".dog"
     }
-    async run(bot, message, args,colours)
+    async run(bot, m, args,colours)
     {
-        let msg = await message.channel.send("Generating...")
+        let msg = await m.channel.send("Generating...")
 
-        let {body} = await superagent
-        .get("https://dog.ceo/api/breeds/image/random")
-        if(!body) return message.reply("It broke! Try again!")
+        const { message } = await fetch("https://dog.ceo/api/breeds/image/random").then(res => res.json());
+            
+            
+
+
+       
+        
         let embed = new discord.RichEmbed()
-        .setColor(colours.light_green)
+        .setColor(colours.light_blue)
         .setAuthor("Superlative")
-        .setImage(body.message)
+        .setImage(message)
+        m.channel.send({embed:embed})
     }
+    
 }

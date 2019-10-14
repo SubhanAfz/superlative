@@ -1,4 +1,4 @@
-const superagent = require("superagent")
+const fetch = require("node-fetch")
 const discord = require("discord.js")
 module.exports = class meme{
     constructor(){
@@ -10,12 +10,18 @@ module.exports = class meme{
     {
         let msg = await message.channel.send("Generating...")
 
-        let {body} = await superagent
-        .get("https://apis.duncte123.me/meme")
-        if(!body) return message.reply("It broke! Try again!")
+        const { data: { image } } = await fetch("https://apis.duncte123.me/meme").then(res => res.json());
+            
+            
+            
+        
+
+        if(!image) return message.reply("It broke! Try again!")
         let embed = new discord.RichEmbed()
         .setColor(colours.light_blue)
         .setAuthor("Superlative")
-        .setImage(body.url)
+        .setImage(image)
+        message.channel.send({embed:embed})
     }
+    
 }
