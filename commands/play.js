@@ -53,7 +53,7 @@ module.exports = class play{
                 var server = servers[message.guild.id]
                 message.member.voiceChannel.join()
                 .then(connection=>{
-                    message.reply("success");
+                    message.reply(`Now playing ${args[1]}`)
                     server.queue.push(args[1]);
 
                     play(connection, message)

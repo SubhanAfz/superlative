@@ -4,6 +4,8 @@ const youtube = new YouTube(process.env.apikey)
 
 
 
+
+
 var servers ={}; 
 
 module.exports = class play{
@@ -12,7 +14,7 @@ module.exports = class play{
         this.alias = ["playq"],
         this.usage = ".play query"
     }
-    async run(bot, message, args)
+    async run(bot, message, args,colours)
     {
         
 
@@ -40,12 +42,14 @@ module.exports = class play{
             message.reply("You didn't give a query!")
             return;
         }
-        var url = youtube.searchVideos(args[1], 1).then(results => {String(results[0].url)}).catch(console.log);
+        youtube.searchVideos(args[1], 1).then(results => {
+            var ytlinkstring = results[0].url
 
-        if (message.member.voiceChannel)
+            
+            if (message.member.voiceChannel)
         {
             if(message.guild.voiceConnection)
-            {
+            {   
                 message.guild.voiceConnection.disconnect();
             }
             else
@@ -56,8 +60,9 @@ module.exports = class play{
                 var server = servers[message.guild.id]
                 message.member.voiceChannel.join()
                 .then(connection=>{
-                    message.reply("success");
-                    server.queue.push(url);
+
+                    message.reply(`Now playing ${ytlinkstring}`)
+                    server.queue.push(ytlinkstring);
 
                     play(connection, message)
                 })
@@ -68,6 +73,15 @@ module.exports = class play{
             {
                 message.reply("Your not in a Voice Channel!");
             }
+            
+        }).catch(console.error)
+        
+
+        
+
+
+
+
     }
        
         
@@ -77,4 +91,4 @@ module.exports = class play{
         
         
 
-    }
+}
