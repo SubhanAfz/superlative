@@ -40,7 +40,7 @@ module.exports = class play{
             message.reply("You didn't give a query!")
             return;
         }
-        var url = youtube.searchVideos(args[1], 1).then(results => { var url = `${results[0].url}`}).catch(console.log);
+        var url = youtube.searchVideos(args[1], 1).then(results => {String(results[0].url)}).catch(console.log);
 
         if (message.member.voiceChannel)
         {
