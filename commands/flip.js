@@ -13,5 +13,6 @@ module.exports = class flip{
         if (chance === 0){
          message.reply("Coin landed on tails!")
         }
+        
     }
 }
