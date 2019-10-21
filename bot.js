@@ -10,7 +10,7 @@ const CH = new CommandHandler({
 
 // Global Constants
 const bot = new discord.Client();
-const token =  process.env.token;
+const token = process.env.token;
 
 
 
@@ -70,4 +70,4 @@ bot.on("message", message =>{
   }
 });    
 
-bot.login(token)
+bot.login(token)  

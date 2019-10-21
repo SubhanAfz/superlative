@@ -1,11 +1,12 @@
 module.exports = class backwards{
     constructor(){
         this.name = "backwards",
-        this.alias = ["back"],
+        this.alias = ["backwards"],
         this.usage = ".backwards message"
     }
-    async run(bot, message, args,colours)
+    async run(bot, message,args,colours)
     {
+        
         function reversestring(str){
             return str.split("").reverse().join("")
         }

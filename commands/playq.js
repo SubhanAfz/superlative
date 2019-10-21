@@ -1,6 +1,6 @@
 const ytdl = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube(process.env.apikey) 
+const youtube = new YouTube("AIzaSyAikRgC_rsPcw_GiksPZET2A3ifiGvW8uY") 
 
 
 
