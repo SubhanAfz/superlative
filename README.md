@@ -15,9 +15,9 @@ Commands | Description
  .ban @person| Bans person from server
  .kick @person| Kicks person from the server
  .softban @person timeinseconds| Bans person from the server and after the delay, will unban person, if none in delay, it acts like ban
- .unban userid| Unbans person from the server
- .cchanneltext name| Creates a text channel and names it with the name
- .cchannelvoice name| Creates a voice channel and names it with the name
+ .unban [userid]| Unbans person from the server
+ .cchanneltext [name]| Creates a text channel and names it with the name
+ .cchannelvoice [name]| Creates a voice channel and names it with the name
  
  ## Voice Channel
  Commands | Description
