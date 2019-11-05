@@ -1,5 +1,6 @@
 # Superlative
 [![Discord](https://discordapp.com/api/guilds/584404484772331521/widget.png)](https://discord.gg/Rnj6pDa)
+[Get the bot here!](https://discordapp.com/oauth2/authorize?client_id=627602045322395690&scope=bot&permissions=8)
 > Superlative is an all-rounder discord bot which adds cool new commands to your landscape of your discord server!
 
 
