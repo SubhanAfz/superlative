@@ -22,8 +22,9 @@ Commands | Description
  ## Voice Channel
  Commands | Description
 ------------ | -------------
-.join | Joins your VC, leaves if it is already in a vc
-.leave | Leaves your VC
+.play [link] | Play a youtube link
+.playq [query]| Search a youtube query and plays the first youtube link
+.leave | Leaves the VC
 
 ## Fun Commands and misc  
 Commands | Description
