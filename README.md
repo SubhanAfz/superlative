@@ -31,6 +31,7 @@ Commands | Description
 ------------ | -------------
 .flip | Flips a coin 
 .ping| Tells you the latency of the bot
+.backwards [word]| Turns your sentence/word backwards
 
 
  
