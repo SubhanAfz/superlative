@@ -11,6 +11,7 @@ module.exports = class play{
     async run(bot, message, args)
     {
         function play(connection,message){
+            console.log("reee");
             var server = servers[message.guild.id]
             server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
             server.queue.shift();
