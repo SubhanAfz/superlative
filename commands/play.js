@@ -11,6 +11,7 @@ module.exports = class play{
     async run(bot, message, args)
     {
             function play(guild, song) {
+                const queue = server.queue;
                 const serverQueue = queue.get(guild.id);
 
                 if (!song) {
