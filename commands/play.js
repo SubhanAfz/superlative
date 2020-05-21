@@ -10,23 +10,25 @@ module.exports = class play{
     }
     async run(bot, message, args)
     {
-        function play(connection,message){
-            console.log("reee");
-            var server = servers[message.guild.id]
-            server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
-            server.queue.shift();
-            console.log("yeet");
-            server.dispatcher.on("end", function(){
-                if (server.queue[0]){
-                    play(connection,message);
-                    
+            function play(guild, song) {
+                const serverQueue = queue.get(guild.id);
+
+                if (!song) {
+                    serverQueue.voiceChannel.leave();
+                    queue.delete(guild.id);
+                    return;
                 }
-                else{
-                    connection.disconnect();
-                }
-            });
-                
-        };
+
+                const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+                    .on('end', () => {
+                        console.log('Music ended!');
+                        serverQueue.songs.shift();
+                        play(guild, serverQueue.songs[0]);
+                    })
+                    .on('error', error => {
+                        console.error(error);
+                    });
+            }
         let findDJ =message.member.roles.find(value => value.name == "DJ")
         if (!findDJ){
             message.reply("You dont have DJ role!");
