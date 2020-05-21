@@ -29,7 +29,7 @@ bot.on("message", message =>{
   
   let botRole = message.guild.roles.find(value => value.name == "CanUseBot")
   let DJ = message.guild.roles.find(value => value.name == "DJ")
-  
+  const member = message.member;
   
   if(!botRole){
     member.guild.createRole({
